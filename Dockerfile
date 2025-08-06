@@ -42,7 +42,11 @@ RUN git clone https://github.com/autonomousvision/mip-splatting.git /tmp/extensi
     export TORCH_CUDA_ARCH_LIST="10.0 10.1 12.0" && \
     pip install --no-cache-dir /tmp/extensions/mip-splatting/submodules/diff-gaussian-rasterization/ && \
     rm -rf /tmp/extensions/mip-splatting
-    
+
+# additional dependencies for text-to-3D API
+COPY api_requirements.txt /app/api_requirements.txt
+RUN pip install --no-cache-dir -r /app/api_requirements.txt
+
 # Clone TRELLIS repo (if needed for build context)
 COPY . /app
 WORKDIR /app
