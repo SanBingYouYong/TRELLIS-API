@@ -11,6 +11,7 @@ docker compose up --build
 API available at `http://localhost:8000` with interactive docs at `/docs`.
 
 Test with: `python test_api.py`
+- application starting up may take *some* time, as well as downloading model weight in the first run - the weights will be cached for future use under `./cache` by volume-mounting the container. 
 
 ## API Usage
 
@@ -25,6 +26,8 @@ curl -O "http://localhost:8000/files/{job_id}/model.glb"
 ```
 
 ## Features
+
+The Dockerfile also provides a way to use an updated torch+cuda environment to original TRELLIS repo. 
 
 - **REST API** for text-to-3D generation
 - **Multiple formats**: GLB, PLY, MP4 preview videos
