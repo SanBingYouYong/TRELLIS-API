@@ -13,6 +13,8 @@ API available at `http://localhost:8000` with interactive docs at `/docs`.
 Test with: `python test_api.py`
 - application starting up may take *some* time, as well as downloading model weight in the first run - the weights will be cached for future use under `./cache` by volume-mounting the container. 
 
+Alternatively, run the docker container manually with `docker run -it --gpus all -v $(pwd)/cache:/root/.cache -p 8000:8000 --name trellis trellis` and run `python text_to_3d_api.py --host 0.0.0.0 --port 8000`.
+
 ## API Usage
 
 ```bash
